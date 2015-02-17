@@ -1,0 +1,141 @@
+<!--The main html is here, this is where most of the things go on-->
+
+<!DOCTYPE html>
+
+  <html lang="en">
+
+    <head>
+
+      <title>LFA</title>
+
+      <meta charset="UTF-8">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+      <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css'>
+
+      <link href='http://fonts.googleapis.com/css?family=News+Cycle:400,700' rel='stylesheet' type='text/css'>
+
+      <link rel="stylesheet" type="text/css" href="css/materialize.css">
+
+      <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+
+      <link href='http://fonts.googleapis.com/css?family=Lato:100italic' rel='stylesheet' type='text/css'>
+
+      <link rel='stylesheet prefetch' href='css/lfa.css'>
+
+      </head>
+
+      <body class="fade-in">
+
+        <div ng-app="myApp" ng-controller="Catalog">
+
+          <div class="heading"><a href="#" class="underline">Library for All</a></div>
+
+            <ul class="categories"> 
+
+                <li> 
+                  
+                    <ul class="dropdown">
+
+                        <li id="author" class="menu-item sub-menu"  ng-click="sortType = 'doc.authors'; sortReverse = !sortReverse"><a href="#">author
+                          
+                          <span ng-show="sortType == 'doc.authors' && !sortReverse" class="fa fa-caret-down"></span>
+                          
+                          <span ng-show="sortType == 'doc.authors' && sortReverse" class="fa fa-caret-up"></span>
+
+                        </a></li></br>
+
+                        <li id="title" class="menu-item sub-menu"  ng-click="sortType = 'doc.name'; sortReverse = !sortReverse"><a href="#">title
+
+                          <span ng-show="sortType == 'doc.name' && !sortReverse" class="fa fa-caret-down"></span>
+                          
+                          <span ng-show="sortType == 'doc.name' && sortReverse" class="fa fa-caret-up"></span>
+
+                        </a></li></br>
+
+                        <li id="subject" class="menu-item sub-menu" ng-click="sortType = 'doc.subject'; sortReverse = !sortReverse"><a href="#">subject
+
+                          <span ng-show="sortType == 'doc.subject' && !sortReverse" class="fa fa-caret-down"></span>
+                          
+                          <span ng-show="sortType == 'doc.subject' && sortReverse" class="fa fa-caret-up"></span>
+
+                        </a></li></br>
+
+                        <li id="language" class="menu-item sub-menu" ng-click="sortType = 'doc.language'; sortReverse = !sortReverse"><a href="#">language
+
+                          <span ng-show="sortType == 'doc.language' && !sortReverse" class="fa fa-caret-down"></span>
+                          
+                          <span ng-show="sortType == 'doc.language' && sortReverse" class="fa fa-caret-up"></span>
+
+                        </a></li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+            <form action="" method="POST" role="form">
+
+              <!--<legend>Find a book from the catolog</legend>-->
+
+              <br> <br> <br> <br>
+
+                  <div class="input-group">
+
+                      <input type="search" id="search" placeholder="search" class="form-control" ng-model="search"/> 
+
+                  </div>
+
+            <div ng-class="{'col s12 m16' : list == true}" class="books" ng-repeat="book in books | filter:search | orderBy:sortType:sortReverse">
+
+              <a href="#">
+
+               <div class="bookdetails"  ng-model="mustShow" ng-click="toggle = !toggle">
+
+                <h2 style="color:{{book.color}}">{{book.doc.name}}</h2> 
+
+                <h3>{{book.doc.authors}}</h3>
+
+                <h4>{{book.doc.subjects}}{{book.doc.tags}}</h4>
+
+                <p>{{book.doc.languages}}</p>
+
+                <div ng-show="toggle" ng-animate="'animate'" class="secondlevelbookdetails">
+
+              </a>
+
+              <a href="#{{book.doc.name}}">
+
+                  <img src="{{book.doc.thumbnail_590_url}}">
+
+                  <div class="blurb">{{book.doc.blurb}}</div>
+
+                </div>
+
+               </div>
+
+              </a>
+
+            </div>
+
+        </div>
+
+        <script src='js/angular.min.js'></script>
+
+        <script src='js/angular-animate.min.js'></script>
+
+        <script src='js/angular-animate.min.js.map'></script>
+
+        <script src="js/prefixfree.min.js"></script>
+
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+
+        <script src='books.js'></script>
+
+        <script src="js/index.js"></script>
+
+      </body>
+
+    </html>
