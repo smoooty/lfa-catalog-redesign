@@ -1,5 +1,5 @@
 # lfa-catalog-redesign
-A redesign of the LFA catalog display
+A redesign of the LFA catalog display. The goal was to create an app to serve as a playful, engaging gateway to reading for young children who have not had access to books. The app utilizes Angular.js data binding to create an isomorphic experience wherein all functionality can occur client side except for the actual updating of the catalog. This is an important consideration owning to the itermitant nature of internet access in the app's target regions.
 
 View a <a href="http://spencerpopedesign.com/lfa/">live version</a> of this repo. 
 
@@ -13,7 +13,7 @@ The colors used to render the letterforms in the opening animation as well as th
 
 <h2>Display and Navigation:</h2>
 
-I wanted the layout of the display to be clean and navigable, respecting the medium of the written word. The navigation consists of a readily understandable downward scroll. The book title, authors, subjects, tags, and language are shown in a hierarchical view based on importance. Clicking on a row reveal second level information about the book - the cover and blurb. This data is queried from a JSON file and dynamically rendered to the view using the Angular.js ngRepeat directive.
+I wanted the layout of the display to be clean and navigable, respecting the medium of the written word. The navigation consists of a readily understandable downward scroll. The book title, authors, subjects, tags, and language are shown in a hierarchical view based on importance. Clicking on a row reveal second level information about the book - the cover and blurb. This data is queried from a JSON file and dynamically rendered to the view using the Angular ngRepeat directive.
 
 <h2>Filtering and Sorting:</h2>
 
